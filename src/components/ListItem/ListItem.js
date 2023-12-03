@@ -1,4 +1,4 @@
-import { View, Text } from "react-native";
+import { View, Text, Image } from "react-native";
 import styles from "./styles";
 import { TouchableOpacity } from "react-native";
 import { FontAwesome } from "@expo/vector-icons";
@@ -21,7 +21,10 @@ export default function ListItem(props) {
         </View>
       </View>
       <TouchableOpacity style={styles.button} onPress={() => onViewDetails()}>
-        <FontAwesome name="eye" size={24} color="black" />
+        <Image
+          source={require("../../../assets/eye.png")}
+          style={{ width: 24, height: 24 }}
+        />
       </TouchableOpacity>
     </View>
   );
