@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import styles from "./styles";
 import { View, Text, TextInput, TouchableOpacity } from "react-native";
 import { KeyboardAwareScrollView } from "react-native-keyboard-aware-scroll-view";
@@ -11,11 +11,19 @@ export default function AddBookScreen({ navigation }) {
   const [gender, setGender] = useState();
   const [author, setAuthor] = useState();
   const [description, setDescription] = useState();
+  const [disableButton, setDisableButton] = useState(false);
 
   const { user } = useContext(UserContext);
   const { saveNewBook } = useContext(BookContext);
 
+  useEffect(() => {
+    if (!title || !author || !description || !gender) setDisableButton(true);
+    else setDisableButton(false);
+  }, [title, author, gender, description]);
+
   const onAddBook = () => {
+    if (!title || !author || !description || !gender) return;
+
     const book = {
       userId: user.id,
       title,
@@ -73,7 +81,11 @@ export default function AddBookScreen({ navigation }) {
           inputMode="text"
           multiline
         />
-        <TouchableOpacity style={styles.button} onPress={() => onAddBook()}>
+        <TouchableOpacity
+          disabled={disableButton}
+          style={disableButton ? styles.disabledButton : styles.button}
+          onPress={() => onAddBook()}
+        >
           <Text style={styles.buttonTitle}>Add new book</Text>
         </TouchableOpacity>
       </KeyboardAwareScrollView>

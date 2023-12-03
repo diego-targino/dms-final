@@ -18,7 +18,6 @@ export default function EditBookScreen({ navigation, route }) {
   const { user } = useContext(UserContext);
   const { updateBook } = useContext(BookContext);
 
-  user;
   useEffect(() => {
     if (!title || !author || !description || !gender) setDisableButton(true);
     else setDisableButton(false);
