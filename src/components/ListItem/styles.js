@@ -11,7 +11,7 @@ export default StyleSheet.create({
     borderRadius: 5,
   },
   bookInfo: {
-    width: "90%",
+    width: "80%",
     padding: 10,
   },
   infoLine: {
@@ -20,13 +20,15 @@ export default StyleSheet.create({
     gap: 4,
   },
   button: {
-    width: 24,
+    width: 40,
+    height: 30,
     marginRight: 30,
     marginTop: 10,
     height: 24,
     borderRadius: 5,
     alignItems: "center",
     justifyContent: "center",
+    backgroundColor: "#788eec",
   },
   buttonTitle: {
     color: "white",

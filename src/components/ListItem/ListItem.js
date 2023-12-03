@@ -21,10 +21,7 @@ export default function ListItem(props) {
         </View>
       </View>
       <TouchableOpacity style={styles.button} onPress={() => onViewDetails()}>
-        <Image
-          source={require("../../../assets/eye.png")}
-          style={{ width: 24, height: 24 }}
-        />
+        <Text style={{ color: "white" }}>Ver</Text>
       </TouchableOpacity>
     </View>
   );
